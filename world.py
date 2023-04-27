@@ -7,8 +7,8 @@ class World:
 	def __init__(self):
 		self.path = []
 		self.pinball = SmartPinball(direction=True)
-		self.road = [0 for i in range(50)]              #the one-dimensional road the pinball moves on
-		self.road[4] = 1                                 #the barrier on the left side   
+		self.road = [0 for i in range(50)]              #the one-dimensional road the pinball moves on (total length is 50)
+		self.road[4] = 1                                 #the barrier on the left side 
 		self.road[-4] = 1                                #the barrier on the right side
 		
 		return
@@ -30,10 +30,10 @@ class World:
 				pain = 1
 			else:
 				pain = 0
-			if self.pinball.direction == 1:        #moving right
+			if self.pinball.direction == 1:        #the current moving direction is right
 				for i in range(self.pinball.sight):
 					sight[i] = self.road[loc+i]    #the vision of the pinball when moving right
-			else:                                  #moving left
+			else:                                  #the current moving direction is left
 				for i in range(self.pinball.sight):
 					sight[i] = self.road[loc-i]    #the vision of the pinball when moving left
 
